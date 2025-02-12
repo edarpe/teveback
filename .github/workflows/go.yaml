@@ -12,13 +12,15 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.20
+          go-version: '1.21' # Actualizado a una versión más reciente
 
       - name: Set GOPATH
         run: echo "GOPATH=${{ github.workspace }}" >> $GITHUB_ENV
-      
-      - name: Install dependencies
-        run: go mod download
+
+      - name: Get dependencies
+        run: |
+          go get github.com/gin-gonic/gin
+          go get -d -v ./...
 
       - name: Build
         run: go build -o build/go.exe -v
@@ -29,4 +31,3 @@ jobs:
           app-name: teveeback
           package: build
           connection-string: ${{ secrets.azureWebAppPublishProfile }}
-        
