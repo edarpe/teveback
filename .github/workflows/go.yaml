@@ -12,7 +12,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: '1.21' # Actualizado a una versión más reciente
+          go-version: '1.21'
 
       - name: Set GOPATH
         run: echo "GOPATH=${{ github.workspace }}" >> $GITHUB_ENV
@@ -30,4 +30,4 @@ jobs:
         with:
           app-name: teveeback
           package: build
-          connection-string: ${{ secrets.azureWebAppPublishProfile }}
+          publish-profile: ${{ secrets.azureWebAppPublishProfile }}
