@@ -16,6 +16,9 @@ jobs:
 
       - name: Set GOPATH
         run: echo "GOPATH=${{ github.workspace }}" >> $GITHUB_ENV
+      
+      - name: Install dependencies
+        run: go mod download
 
       - name: Build
         run: go build -o build/go.exe -v
