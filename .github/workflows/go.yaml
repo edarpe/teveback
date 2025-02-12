@@ -18,7 +18,7 @@ jobs:
         run: echo "GOPATH=${{ github.workspace }}" >> $GITHUB_ENV
 
       - name: Build
-        run: go build -o build/main.exe -v
+        run: go build -o build/go.exe -v
 
       - name: Upload to Azure
         uses: Azure/webapps-deploy@v2
